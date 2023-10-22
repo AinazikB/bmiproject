@@ -1,16 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.bmiproject.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="547.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bmiproject.HelloController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4499ac" height="413.0" layoutX="-7.0" layoutY="-7.0" strokeType="INSIDE" width="556.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.5088499188423157" green="0.6842105388641357" blue="0.24580897390842438" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Rectangle>
+      <Label layoutX="34.0" layoutY="105.0" text="Enter Weight:" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="216.0" layoutY="53.0" text="BMI Calculator" textFill="WHITE" AnchorPane.bottomAnchor="308.6" AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="163.0" AnchorPane.topAnchor="53.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <TextField fx:id="weight" layoutX="34.0" layoutY="150.0" prefHeight="26.0" prefWidth="230.0" AnchorPane.bottomAnchor="223.6" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="282.6" AnchorPane.topAnchor="150.0" />
+      <Label layoutX="36.0" layoutY="200.0" text="Enter Height:" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="height" layoutX="34.0" layoutY="235.0" prefHeight="26.0" prefWidth="230.0" AnchorPane.bottomAnchor="138.6" AnchorPane.leftAnchor="33.99999999999997" AnchorPane.rightAnchor="282.6" AnchorPane.topAnchor="235.0" />
+      <Button layoutX="140.0" layoutY="336.0" mnemonicParsing="false" onAction="#CalculateBMI" prefHeight="26.0" prefWidth="126.0" text=" Calculate BMI">
+         <effect>
+            <DropShadow height="18.72" radius="4.18" width="0.0">
+               <color>
+                  <Color opacity="0.511398196220398" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Button>
+      <Label layoutX="329.0" layoutY="105.0" text="BMI Status:" textFill="#e3ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="rButton1" layoutX="74.0" layoutY="292.0" mnemonicParsing="false" onAction="#getType" text="English Unit" textFill="#e3ff00">
+         <toggleGroup>
+            <ToggleGroup fx:id="type1" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rButton2" layoutX="176.0" layoutY="292.0" mnemonicParsing="false" onAction="#getType" text="Metric Unit" textFill="#e3ff00" toggleGroup="$type1" />
+      <Label fx:id="statusText" layoutX="329.0" layoutY="147.0" onDragDetected="#CalculateBMI" prefHeight="26.0" prefWidth="137.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <MenuBar layoutX="-7.0" layoutY="1.0" prefHeight="26.0" prefWidth="556.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#onClickExit" text="Exit" />
+              <MenuItem mnemonicParsing="false" onAction="#onClickClear" text="Clear" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#onclickAbout" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>
